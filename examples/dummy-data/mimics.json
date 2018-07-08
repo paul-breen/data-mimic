@@ -1,0 +1,102 @@
+{
+    "global": {
+        "design_mode": false
+    },
+    "mimics": [
+        {
+            "module": "examples.dummy-data.mimics.DummyDataMimic",
+            "class": "DummyDataMimic",
+            "id": "engine",
+            "bg_image": "examples/dummy-data/images/engine_bg.png",
+            "objects": [
+                {
+                    "id": "day_tank",
+                    "type": "rectangle",
+                    "layout": [
+                        [588,477],
+                        105,
+                        71
+                    ],
+                    "options": {
+                        "alpha": 0.5
+                    },
+                    "dynamics": {
+                        "color": {
+                            "state": "day_tank_status",
+                            "default": "r",
+                            "transforms": [
+                                {"in": 0, "out": "g"}
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "engine",
+                    "type": "rectangle",
+                    "layout": [
+                        [376,321],
+                        210,
+                        123
+                    ],
+                    "options": {
+                        "alpha": 0.5
+                    },
+                    "dynamics": {
+                        "color": {
+                            "state": "engine_status",
+                            "default": "r",
+                            "transforms": [
+                                {"in": 0, "out": "g"}
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "engine_control_panel_connection",
+                    "type": "line2d",
+                    "layout": [
+                        [175,475,475],
+                        [250,250,322]
+                    ],
+                    "options": {
+                        "lw": 5
+                    },
+                    "dynamics": {
+                        "alpha": {
+                            "state": "engine_control_panel_active",
+                            "default": 0.0,
+                            "transforms": [
+                                {"in": [1, 65536], "out": 0.5}
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "day_tank_level",
+                    "type": "text_box",
+                    "layout": [
+                        [700,550],
+                        150,
+                        20
+                    ],
+                    "options": {
+                    },
+                    "text": {
+                        "prefix": "Level: ",
+                        "postfix": " cubic litres"
+                    },
+                    "dynamics": {
+                        "infix": {
+                            "state": "day_tank_level",
+                            "default": "NaN",
+                            "transforms": [
+                                {"in": [1, 65536], "out": null}
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+
