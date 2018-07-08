@@ -83,7 +83,7 @@
                     },
                     "text": {
                         "prefix": "Level: ",
-                        "postfix": " cubic litres"
+                        "postfix": " cubic metres"
                     },
                     "dynamics": {
                         "infix": {
