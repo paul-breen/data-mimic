@@ -25,7 +25,7 @@ then start the application:
 flask run
 ```
 
-and point a browser at http://127.0.0.1:5000/.
+and point a browser at http://127.0.0.1:5000/mimic/update/engine.
 
 This example uses calls to `random.randint()` as its data source, and generates random values to drive the mimic.
 
