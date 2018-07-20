@@ -252,7 +252,7 @@ class BaseMimic(object):
             t_out = state
 
         if isinstance(t_in, (list, tuple)):
-            if t_in[0] < state <= t_in[1]:
+            if t_in[0] <= state <= t_in[1]:
                 item = t_out
         elif state == t_in:
                 item = t_out
