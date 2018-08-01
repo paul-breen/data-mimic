@@ -4,7 +4,7 @@
     },
     "mimics": [
         {
-            "module": "examples.dummy-data.mimics.DummyDataMimic",
+            "module": "datamimic.examples.dummy-data.mimics.DummyDataMimic",
             "class": "DummyDataMimic",
             "id": "engine",
             "bg_image": "datamimic/examples/dummy-data/images/engine_bg.png",
