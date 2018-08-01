@@ -4,10 +4,10 @@
     },
     "mimics": [
         {
-            "module": "datamimic.PdsBaseMimic",
-            "class": "PdsBaseMimic",
+            "module": "examples.dummy-data.mimics.DummyDataMimic",
+            "class": "DummyDataMimic",
             "id": "engine",
-            "bg_image": "examples/pds/images/engine_bg.png",
+            "bg_image": "datamimic/examples/dummy-data/images/engine_bg.png",
             "objects": [
                 {
                     "id": "day_tank",

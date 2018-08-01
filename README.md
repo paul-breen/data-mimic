@@ -6,7 +6,7 @@ This project consists of the datamimic modules, and a simple Flask web applicati
 
 ### Running the application
 
-Create a `.env` file, in the same directory as the application file (`App.py`).  This `.env` file should contain the path to the Flask app, and the path to the mimics configuration file (`mimics.json`).  Then from that directory, run:
+Create a `.env` file, in the parent directory of the application file (`App.py`).  This `.env` file should contain the path to the Flask app, and the path to the mimics configuration file (`mimics.json`).  Then from that directory, run:
 
 ```bash
 flask run
@@ -15,8 +15,9 @@ flask run
 For example, to run the dummy-data example, create a `.env` file that looks like:
 
 ```bash
-FLASK_APP=App.py
-MIMICS_CONF=examples/dummy-data/mimics.json
+FLASK_APP=datamimic/App.py
+MIMICS_CONF=datamimic/examples/dummy-data/mimics.json
+
 ```
 
 then start the application:
