@@ -26,6 +26,7 @@ setup(name='data-mimic',
       install_requires=[
           'click',
           'Flask',
+          'Flask-Cors',
           'Flask-DotEnv',
           'matplotlib',
           'mpld3',

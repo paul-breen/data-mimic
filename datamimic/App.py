@@ -18,11 +18,13 @@ from flask import Flask
 from flask import request
 from flask.cli import AppGroup
 from flask_dotenv import DotEnv
+from flask_cors import CORS
 import mpld3
 import json
 
 app = Flask(__name__)
 env = DotEnv(app)
+CORS(app)
 
 # Find the path to the mimics configuration from a .env file
 try:
