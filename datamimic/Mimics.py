@@ -51,7 +51,7 @@ class Mimics(object):
             m = importlib.import_module(item['module'])
             c = getattr(m, item['class'])
             o = c(item['id'])
-            o.init(bg_image=item['bg_image'], objects=item['objects'], design_mode=design_mode)
+            o.init(figsize=item['figsize'], bg_image=item['bg_image'], objects=item['objects'], design_mode=design_mode)
             self.mimics.update({o.get_id(): o})
 
     def get_mimic(self, id):

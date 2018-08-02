@@ -7,6 +7,7 @@
             "module": "datamimic.PdsBaseMimic",
             "class": "PdsBaseMimic",
             "id": "engine",
+            "figsize": [12,6],
             "bg_image": "datamimic/examples/pds/images/engine_bg.png",
             "objects": [
                 {
@@ -76,7 +77,7 @@
                     "type": "text_box",
                     "layout": [
                         [700,550],
-                        150,
+                        180,
                         20
                     ],
                     "options": {
