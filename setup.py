@@ -31,7 +31,6 @@ setup(name='data-mimic',
           'matplotlib',
           'mpld3',
           'numpy',
-          'pds',
           'Pillow',
           'python-dotenv'
       ])
