@@ -30,3 +30,11 @@ and point a browser at http://127.0.0.1:5000/mimic/update/engine.
 
 This example uses calls to `random.randint()` as its data source, and generates random values to drive the mimic.
 
+To run the application under a standalone WSGI server, such as `gunicorn`, do:
+
+```bash
+gunicorn -b <host>:<port> datamimic.App:app
+```
+
+using the same `.env` file as above.
+
