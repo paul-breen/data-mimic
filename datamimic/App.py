@@ -64,5 +64,27 @@ def mimic_update(id):
     else:
         return mpld3.fig_to_html(mimic.update())
 
+@mimic_cli.command('list', help='List available mimics')
+@app.route('/mimic/list')
+def mimic_list():
+    """
+    List all available mimics
+
+    :returns: A list of available mimics
+    :rtype: JSON
+    """
+ 
+    mimic_list = []
+
+    for id in mimics.mimics:
+        m = mimics.get_mimic(id)
+        d = {'id': id, 'objects': m.objects, 'variables': m.variables}
+        mimic_list.append(d)
+
+    data = json.dumps(mimic_list)
+    print(data)                                            # For the CLI
+
+    return data                                            # For the API
+
 app.cli.add_command(mimic_cli)
 
