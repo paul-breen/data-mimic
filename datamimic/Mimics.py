@@ -7,6 +7,7 @@
 
 import importlib
 import json
+import re
 
 class Mimics(object):
     """
@@ -39,6 +40,19 @@ class Mimics(object):
 
         return conf
 
+    @staticmethod
+    def construct_mimic_title(id):
+        """
+        Construct the mimic title for the given ID
+
+        :param id: The ID of the mimic
+        :type id: str
+        :returns: The mimic title
+        :rtype: str
+        """
+
+        return re.sub('[_-]', ' ', id).title()
+
     def init_mimics(self):
         """
         Initialise the mimics from the configuration
@@ -52,6 +66,7 @@ class Mimics(object):
             c = getattr(m, item['class'])
             o = c(item['id'])
             o.init(figsize=item['figsize'], bg_image=item['bg_image'], objects=item['objects'], design_mode=design_mode)
+            o.title = Mimics.construct_mimic_title(item['id'])
             self.mimics.update({o.get_id(): o})
 
     def get_mimic(self, id):
@@ -65,4 +80,26 @@ class Mimics(object):
         """
 
         return self.mimics[id]
+
+    def get_mimic_list(self):
+        """
+        Get a list of all available mimics
+
+        :returns: A list of available mimics
+        :rtype: list
+        """
+     
+        mimic_list = []
+
+        for id in self.mimics:
+            m = self.get_mimic(id)
+            d = {
+                'id': id,
+                'title': m.title,
+                'objects': m.objects,
+                'variables': m.variables
+            }
+            mimic_list.append(d)
+
+        return mimic_list
 

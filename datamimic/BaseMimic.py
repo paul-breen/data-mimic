@@ -15,6 +15,7 @@ import numpy as np
 class BaseMimic(object):
     def __init__(self, id):
         self.id = id
+        self.title = None
         self.bg = None
         self.fig = None
         self.ax = None

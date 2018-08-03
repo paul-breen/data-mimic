@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>HMI - View - {{ subtitle }}</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">HMI - View - {{ subtitle }}</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link" id="navbar-home">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbar-doc-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Documentation
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbar-doc-menu">
+              <a href="https://github.com/paul-breen/data-mimic" class="dropdown-item">Project Repository</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbar-pds-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Part of the PDS SCADA System
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbar-pds-menu">
+              <a href="https://github.com/paul-breen/plc-data-server" class="dropdown-item">PLC Data Server</a>
+              <a href="https://github.com/paul-breen/plc-simulator" class="dropdown-item">PLC Simulator</a>
+              <a href="https://github.com/paul-breen/data-mimic" class="dropdown-item">Data Mimic</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div id="api-content">
+        <div class="row">
+          <div class="col">
+            <div id="view" alt="View">
+            </div>
+          </div>
+        </div>
+      </div>                                <!-- api-content -->
+    </div>                                  <!-- container -->
+
+    <footer class="footer footer-default bg-dark fixed-bottom">
+      <div class="footer-copyright text-center text-light">
+        © 2018 Paul M. Breen
+      </div>
+    </footer>
+
+    <script>
+      refresh = {{ view.refresh }};
+      url = "{{ view.url }}";
+
+      loadMimic = function(url) {
+        jQuery("#view").load(url);
+
+        setInterval(function() {
+          jQuery("#view").load(url);
+        }, refresh);
+      };
+
+      /* Instantiate the controller */
+      jQuery(document).ready(function() {
+        loadMimic(url);
+      });
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
