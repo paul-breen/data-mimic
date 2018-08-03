@@ -8,21 +8,23 @@
 from setuptools import setup
 
 setup(name='data-mimic',
-      version='0.1',
+      version='0.2',
       description='Data Mimic',
       url='https://github.com/paul-breen/data-mimic',
       author='Paul Breen',
       author_email='paul.breen6@btinternet.com',
       license='Apache 2.0',
-      packages=['datamimic'],
+      packages=['datamimic', 'datamimic.examples', 'datamimic.examples.dummy-data', 'datamimic.examples.dummy-data.mimics'],
       package_data={'datamimic': [
-          'examples/dummy-data/*',
-          'examples/dummy-data/images/*',
-          'examples/dummy-data/mimics/*',
           'examples/pds/*',
           'examples/pds/images/*',
           'examples/pds/mimics/*'
-      ]},
+      ],
+      'datamimic.examples.dummy-data': [
+          '*',
+          'images/*'
+      ]
+      },
       install_requires=[
           'click',
           'Flask',
