@@ -16,6 +16,7 @@ setup(name='data-mimic',
       license='Apache 2.0',
       packages=['datamimic', 'datamimic.examples', 'datamimic.examples.dummy-data', 'datamimic.examples.dummy-data.mimics'],
       package_data={'datamimic': [
+          'templates/*',
           'examples/pds/*',
           'examples/pds/images/*',
           'examples/pds/mimics/*'
