@@ -122,11 +122,13 @@ class BaseMimic(object):
             layout = self.compute_layout(o['layout'])
             options = self.compute_options(o['options'], o['dynamics'])
 
-            if o['type'] == "rectangle":
+            if o['type'] == 'rectangle':
                 self.add_rectangle(*layout, **options)
-            elif o['type'] == "line2d":
+            elif o['type'] == 'circle':
+                self.add_circle(*layout, **options)
+            elif o['type'] == 'line2d':
                 self.add_line2d(*layout, **options)
-            elif o['type'] == "text_box":
+            elif o['type'] == 'text_box':
                 text = self.compute_text(o['text'], o['dynamics'])
                 label = self.create_text_label(**text)
                 self.add_text_box(*layout, label, **options)
@@ -161,6 +163,17 @@ class BaseMimic(object):
         rect = mpatches.Rectangle(*args, **kwargs)
         self.patches.append(rect)
         self.ax.add_patch(rect)
+
+    def add_circle(self, *args, **kwargs):
+        """
+        Add a circle to the mimic
+
+        See matplotlib.patches.Circle() for details
+        """
+
+        circle = mpatches.Circle(*args, **kwargs)
+        self.patches.append(circle)
+        self.ax.add_patch(circle)
 
     def add_line2d(self, *args, **kwargs):
         """

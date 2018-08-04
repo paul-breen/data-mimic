@@ -73,6 +73,46 @@
                     }
                 },
                 {
+                    "id": "engine_control_panel_i",
+                    "type": "circle",
+                    "layout": [
+                        [111,261],
+                        11
+                    ],
+                    "options": {
+                        "alpha": 0.5
+                    },
+                    "dynamics": {
+                        "color": {
+                            "state": "engine_control_panel_active",
+                            "default": "r",
+                            "transforms": [
+                                {"in": 0, "out": "g"}
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "engine_control_panel_p",
+                    "type": "circle",
+                    "layout": [
+                        [152,259],
+                        11
+                    ],
+                    "options": {
+                        "alpha": 0.5
+                    },
+                    "dynamics": {
+                        "color": {
+                            "state": "engine_control_panel_active",
+                            "default": "r",
+                            "transforms": [
+                                {"in": 0, "out": "g"}
+                            ]
+                        }
+                    }
+                },
+                {
                     "id": "day_tank_level",
                     "type": "text_box",
                     "layout": [
