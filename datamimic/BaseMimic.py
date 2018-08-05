@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 import matplotlib.patches as mpatches
 import matplotlib.ticker as mticker
+from mpld3 import plugins as mdplugins
 from PIL import Image
 import numpy as np
 
@@ -68,6 +69,7 @@ class BaseMimic(object):
         self.ax.grid(b=grid_on)
         self.ax.xaxis.set_major_locator(mticker.MultipleLocator(tick_spacing))
         self.ax.yaxis.set_major_locator(mticker.MultipleLocator(tick_spacing))
+        mdplugins.connect(self.fig, mdplugins.MousePosition())
 
     def collect_variables_from_objects(self):
         """
