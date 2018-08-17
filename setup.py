@@ -35,5 +35,6 @@ setup(name='data-mimic',
           'mpld3',
           'numpy',
           'Pillow',
-          'python-dotenv'
+          'python-dotenv',
+          'requests'
       ])
