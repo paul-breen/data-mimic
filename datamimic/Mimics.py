@@ -53,6 +53,20 @@ class Mimics(object):
 
         return re.sub('[_-]', ' ', id).title()
 
+    def get_item_conf(self, item):
+        """
+        Get the mimic item's optional configuration property
+        """
+
+        conf = {}
+
+        try:
+            conf = item['conf']
+        except KeyError:
+            pass
+
+        return conf
+
     def init_mimics(self):
         """
         Initialise the mimics from the configuration
@@ -64,7 +78,7 @@ class Mimics(object):
         for item in self.conf['mimics']:
             m = importlib.import_module(item['module'])
             c = getattr(m, item['class'])
-            o = c(item['id'])
+            o = c(item['id'], conf=self.get_item_conf(item))
             o.init(figsize=item['figsize'], bg_image=item['bg_image'], objects=item['objects'], design_mode=design_mode)
             o.title = Mimics.construct_mimic_title(item['id'])
             self.mimics.update({o.get_id(): o})

@@ -14,8 +14,9 @@ from PIL import Image
 import numpy as np
 
 class BaseMimic(object):
-    def __init__(self, id):
+    def __init__(self, id, conf={}):
         self.id = id
+        self.conf = conf
         self.title = None
         self.bg = None
         self.fig = None

@@ -10,8 +10,8 @@ import random
 from datamimic.BaseMimic import BaseMimic
 
 class DummyDataMimic(BaseMimic):
-    def __init__(self, id):
-        super().__init__(id)
+    def __init__(self, id, conf={}):
+        super().__init__(id, conf=conf)
         self.dummy_data = {}
 
     def init(self, **kwargs):

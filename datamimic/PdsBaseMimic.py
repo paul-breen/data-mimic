@@ -9,8 +9,8 @@ from datamimic.BaseMimic import BaseMimic
 import pds.pds as pds
 
 class PdsBaseMimic(BaseMimic):
-    def __init__(self, id):
-        super().__init__(id)
+    def __init__(self, id, conf={}):
+        super().__init__(id, conf=conf)
         self.conn = None
 
     def __del__(self):
