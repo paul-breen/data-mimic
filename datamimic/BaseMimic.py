@@ -253,6 +253,8 @@ class BaseMimic(object):
 
             if item is None:
                 item = item_map['default']
+            else:
+                item = self.format_item(item, item_map)
         except KeyError:
             pass
 
@@ -273,6 +275,17 @@ class BaseMimic(object):
                 item = t_out
         elif state == t_in:
                 item = t_out
+
+        return item
+
+    def format_item(self, item, item_map):
+        try:
+            format_spec = item_map['format']
+
+            if item is not None:
+                item = format_spec.format(item)
+        except KeyError:
+            pass
 
         return item
 

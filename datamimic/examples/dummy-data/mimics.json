@@ -124,12 +124,13 @@
                     },
                     "text": {
                         "prefix": "Level: ",
-                        "postfix": " cubic metres"
+                        "postfix": " litres"
                     },
                     "dynamics": {
                         "infix": {
                             "state": "day_tank_level",
                             "default": "NaN",
+                            "format": "{:0.1f}",
                             "transforms": [
                                 {"in": [0, 65535], "out": null}
                             ]
