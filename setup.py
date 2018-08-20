@@ -8,7 +8,7 @@
 from setuptools import setup
 
 setup(name='data-mimic',
-      version='0.3',
+      version='0.4',
       description='Data Mimic',
       url='https://github.com/paul-breen/data-mimic',
       author='Paul Breen',
