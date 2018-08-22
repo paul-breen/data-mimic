@@ -131,10 +131,14 @@ class BaseMimic(object):
                 self.add_circle(*layout, **options)
             elif o['type'] == 'line2d':
                 self.add_line2d(*layout, **options)
-            elif o['type'] == 'text_box':
+            elif o['type'] in ['text', 'text_box']:
                 text = self.compute_text(o['text'], o['dynamics'])
                 label = self.create_text_label(**text)
-                self.add_text_box(*layout, label, **options)
+
+                if o['type'] == 'text':
+                    self.add_text(*layout, label, **options)
+                elif o['type'] == 'text_box':
+                    self.add_text_box(*layout, label, **options)
 
     def remove_patches(self):
         """
@@ -146,14 +150,14 @@ class BaseMimic(object):
 
         self.patches = []
 
-    def add_text(self, xy, text, ha='left', family='sans-serif', size=14):
+    def add_text(self, xy, text, **kwargs):
         """
         Add text to the mimic
 
         See matplotlib.pyplot.text() for details
         """
 
-        text = plt.text(xy[0], xy[1], text, ha=ha, family=family, size=size)
+        text = plt.text(xy[0], xy[1], text, **kwargs)
         self.patches.append(text)
 
     def add_rectangle(self, *args, **kwargs):
@@ -191,12 +195,11 @@ class BaseMimic(object):
 
     def add_text_box(self, xy, width, height, text,
                      box_options={'ec': 'b', 'fc': 'none', 'alpha': 0.5},
-                     text_options={},
+                     text_options={'ha': 'left', 'family': 'sans-serif',
+                                   'size': 14},
                      layout_options={'x_offset': 5, 'y_offset': 14}):
         """
         Add text surrounded by a box to the mimic
-
-        N.B.: The text_options default to those of add_text()
         """
 
         self.add_rectangle(xy, width, height, **box_options)
@@ -211,7 +214,7 @@ class BaseMimic(object):
             pass
 
         xy_offset = (xy[0] + x_offset, xy[1] + y_offset)
-        self.add_text((xy_offset[0], xy_offset[1]), text, **text_options)
+        self.add_text(xy_offset, text, **text_options)
 
     def create_text_label(self, prefix="", infix="", postfix=""):
         return '{}{}{}'.format(prefix, infix, postfix)

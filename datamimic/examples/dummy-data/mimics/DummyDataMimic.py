@@ -21,7 +21,8 @@ class DummyDataMimic(BaseMimic):
             'day_tank_status': lambda: random.randint(0, 2),
             'engine_status': lambda:  random.randint(0, 2),
             'engine_control_panel_active': lambda:  random.randint(0, 2),
-            'day_tank_level': lambda : random.randint(1, 101)
+            'day_tank_level': lambda : random.randint(1, 101),
+            'exhaust_temperature': lambda : random.randint(270,272)
         }
 
     def get_variable(self, name):

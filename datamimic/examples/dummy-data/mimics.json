@@ -136,6 +136,30 @@
                             ]
                         }
                     }
+                },
+                {
+                    "id": "exhaust_temperature",
+                    "type": "text",
+                    "layout": [
+                        [380,335]
+                    ],
+                    "options": {
+                        "color": "black"
+                    },
+                    "text": {
+                        "prefix": "",
+                        "postfix": " deg C"
+                    },
+                    "dynamics": {
+                        "infix": {
+                            "state": "exhaust_temperature",
+                            "default": "NaN",
+                            "format": "{:0.1f}",
+                            "transforms": [
+                                {"in": [0, 65535], "out": null}
+                            ]
+                        }
+                    }
                 }
             ]
         }
